@@ -80,7 +80,6 @@
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
@@ -98,6 +97,7 @@
                 <configuration>
                     <includes>**/RunnerTest.java</includes>
                     <argLine>-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</argLine>
+                    <forkCount>0</forkCount>
                 </configuration>
                 <dependencies>
                     <dependency>

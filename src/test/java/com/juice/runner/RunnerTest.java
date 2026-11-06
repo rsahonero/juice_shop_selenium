@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
         monochrome = false,
         publish = true,
         dryRun = false,
-        tags = "@register"
+        tags = "@login"
 )
 
 public class RunnerTest extends AbstractTestNGCucumberTests {

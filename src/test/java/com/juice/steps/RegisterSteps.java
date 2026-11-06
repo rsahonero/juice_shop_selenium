@@ -17,7 +17,7 @@ public class RegisterSteps extends Base {
 
     @When("User completes the registration form with valid information")
     public void user_completes_the_registration_form_with_valid_information() {
-           //registerPage.fillOutRegisterForm();
+        //registerPage.fillOutRegisterForm();
         registerPage.fillOutRegisterFakeForm();
     }
 
@@ -26,10 +26,11 @@ public class RegisterSteps extends Base {
         registerPage.clickRegisterButton();
 
     }
-
     @Then("A success message “Thank you for registering” should be displayed")
     public void a_success_message_thank_you_for_registering_should_be_displayed() {
         String message = registerPage.getRegisterMessage();
         Assert.assertEquals(message, registerPage.fullMessage);
     }
+
+
 }

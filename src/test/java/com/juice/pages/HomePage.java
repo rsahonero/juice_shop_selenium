@@ -14,10 +14,9 @@ public class HomePage extends Base {
         Base.driver = driver;
     }
     public void goToRegister() {
-
-
         driver.findElement(createAccountLink).click();
     }
+
     public void goToSingIn(){
         driver.findElement(SingLink).click();
     }

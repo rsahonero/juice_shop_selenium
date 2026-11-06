@@ -1,12 +1,12 @@
 package com.juice.utils;
 
 import com.juice.pages.HomePage;
+import com.juice.pages.LoginPage;
 import com.juice.pages.RegisterPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class Hooks extends Base{
@@ -20,12 +20,13 @@ public class Hooks extends Base{
 
         homePage = new HomePage(driver);
         registerPage = new RegisterPage(driver);
+        loginPage = new LoginPage(driver);
     }
 
     @After
     public void tearDown() {
         if(driver != null) {
-        //    driver.quit();
+            //driver.quit();
         }
     }
 }
