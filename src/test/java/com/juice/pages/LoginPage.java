@@ -2,42 +2,57 @@ package com.juice.pages;
 import com.juice.utils.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.List;
 
 public class LoginPage extends Base {
 
-    protected By emailTxt = By.id("email");
-    protected By passwordTxt = By.id("password");
-    protected By logInBtx = By.id("loginButton");
-    protected By owaspJuiceLabel = By.xpath("//span[contains(text(), ' OWASP Juice Shop ')]");
-    protected By invalidMessageLogin = By.xpath("//p[@class='error']");
+    @FindBy (id = "email")
+    protected WebElement emailTxt;
+    @FindBy (id = "password")
+    protected WebElement passwordTxt;
+    @FindBy (id = "loginButton")
+    protected WebElement logInBtx;
+    @FindBy (xpath = "//span[contains(text(), ' OWASP Juice Shop ')]")
+    protected WebElement owaspJuiceLabel;
+    @FindBy (xpath = "//p[@class='error']")
+    protected WebElement invalidMessageLogin;
+
 
     public LoginPage(WebDriver driver) {
         Base.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void fillOutLogIn(String username, String password) {
-        driver.findElement(emailTxt).sendKeys(username);
-        driver.findElement(passwordTxt).sendKeys(password);
-        driver.findElement(logInBtx).click();
+        emailTxt.sendKeys(username);
+        passwordTxt.sendKeys(password);
+        logInBtx.click();
     }
     public String getOwaspJuiceLabel() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(owaspJuiceLabel));
-        return driver.findElement(owaspJuiceLabel).getText();
+        wait.until(ExpectedConditions.visibilityOf(owaspJuiceLabel));
+        return owaspJuiceLabel.getText();
     }
     public String getIncorrectLoginMessage() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(invalidMessageLogin));
-        return driver.findElement(invalidMessageLogin).getText();
+        wait.until(ExpectedConditions.visibilityOf(invalidMessageLogin));
+        return invalidMessageLogin.getText();
     }
-    public String getDisplayedMessage(){
-        wait.until(ExpectedConditions.or(
-                ExpectedConditions.visibilityOfElementLocated(owaspJuiceLabel),
-                ExpectedConditions.visibilityOfElementLocated(invalidMessageLogin)
-        ));
-        if(!driver.findElements(invalidMessageLogin).isEmpty()) {
-            return getIncorrectLoginMessage();
+    public String getDisplayedMessage() {
+        By errorLocator = By.xpath("//p[@class='error']");
+
+        wait.until(d -> !d.findElements(errorLocator).isEmpty()
+                || !d.findElements(By.id("navbarAccount")).isEmpty());
+
+        List<WebElement> errors = driver.findElements(errorLocator);
+        if (!errors.isEmpty()) {
+            return errors.get(0).getText();
         }
         return getOwaspJuiceLabel();
+
     }
 
 }

@@ -1,6 +1,7 @@
 package com.juice.steps;
 
 import com.juice.utils.Base;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,13 +9,17 @@ import org.testng.Assert;
 
 public class LoginSteps extends Base {
 
-    @Given("User is on Login page")
-    public void user_is_on_login_page() {
+    @Given("User is on the Home Page")
+    public void userIsOnTheHomePage() {
         driver.get(BASE_URL);
+    }
+    @When("User navigates to the Login page")
+    public void userNavigatesToTheLoginPage() {
         registerPage.dismissPopUp();
+        homePage.goToSingIn();
     }
 
-    @When("User enters {string} and {string} on the Login Page")
+    @And("User enters {string} and {string} on the Login Page")
     public void user_enters_and_is_on_the_login_page(String username, String password) {
         loginPage.fillOutLogIn(username, password);
     }
@@ -23,5 +28,7 @@ public class LoginSteps extends Base {
     public void theSystemDisplaysTheMessage(String message) {
         Assert.assertEquals(loginPage.getDisplayedMessage(), message);
     }
+
+
 }
 

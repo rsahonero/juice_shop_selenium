@@ -5,14 +5,17 @@ Feature: Login functionality on fruit juice
   I want to log in and log out securely
   So that I can access my account and shop with confidence
 
+  Background:
+    Given User is on the Home Page
+
   Scenario Outline: Login attempts with different credentials
-    Given User is on Login page
-    When User enters "<username>" and "<password>" on the Login Page
+    When User navigates to the Login page
+    And User enters "<username>" and "<password>" on the Login Page
     Then The system displays the message "<message>"
 
     Examples: Successful logins
-      | username           | password   | message          |
-      | valeria34@user.com | Password1! | OWASP Juice Shop |
+      | username         | password   | message          |
+      | jhon168@user.com | Password1! | OWASP Juice Shop |
 
     Examples: Unsuccessful logins
       | username          | password     | message                    |
