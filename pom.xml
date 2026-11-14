@@ -2,17 +2,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>Cucumber-05</groupId>
-    <artifactId>Cucumber-05-4</artifactId>
+    <groupId>juice_shop</groupId>
+    <artifactId>juice_shop_01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Cucumber-05</name>
+    <name>juice_shop</name>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <cucumber.version>7.34.9</cucumber.version>
-        <allure.version>2.29.1</allure.version>
-        <aspectj.version>1.9.20</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -74,18 +72,6 @@
             <version>2.7.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-cucumber7-jvm</artifactId>
-            <version>${allure.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>${allure.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -95,36 +81,35 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.4</version>
                 <configuration>
-                    <includes>**/RunnerTest.java</includes>
-                    <argLine>-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar</argLine>
-                    <forkCount>0</forkCount>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <includes>**/TestRunner.java</includes>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.26</version>
-                    </dependency>
-                </dependencies>
+
             </plugin>
 
             <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.17.0</version>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.9.0</version>
                 <executions>
                     <execution>
-                        <id>allure-report</id>
+                        <id>generate-report</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>report</goal>
+                            <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <projectName>juice_shop Report</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <inputDirectory>
+                                ${project.build.directory}/cucumber-reports
+                            </inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <reportVersion>${allure.version}</reportVersion>
-                    <reportDirectory>${project.build.directory}/allure-report</reportDirectory>
-                </configuration>
             </plugin>
         </plugins>
 

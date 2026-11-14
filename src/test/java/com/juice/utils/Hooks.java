@@ -1,16 +1,27 @@
 package com.juice.utils;
 
-import com.juice.pages.HomePage;
-import com.juice.pages.LoginPage;
-import com.juice.pages.RegisterPage;
+import com.juice.driver.DriverFactory;
+import com.juice.driver.DriverManager;
+import com.juice.pages.BasePage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
-public class Hooks extends Base{
+public class Hooks extends BasePage {
 
+    @Before
+    public void setup() {
+        DriverFactory.createDriver();
+        DriverManager.initWait();
+    }
+
+    @After
+    public void tearDown() {
+        //DriverManager.cleanUp();
+    }
+
+
+}
+    /*
     @Before
     public void setup() {
         driver = new ChromeDriver();
@@ -29,4 +40,6 @@ public class Hooks extends Base{
             //driver.quit();
         }
     }
-}
+
+    */
+

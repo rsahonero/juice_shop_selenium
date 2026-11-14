@@ -1,17 +1,23 @@
 package com.juice.steps;
 
-import com.juice.utils.Base;
+import com.juice.pages.BasePage;
+import com.juice.pages.HomePage;
+import com.juice.pages.LoginPage;
+import com.juice.pages.RegisterPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 
-public class RegisterSteps extends Base {
+public class RegisterSteps extends BasePage {
+
+    private final HomePage homePage = new HomePage();
+    private final RegisterPage registerPage = new RegisterPage();
 
     @Given("User navigates to the Create an Account page")
     public void user_navigates_to_the_create_an_account_page() {
-       registerPage.dismissPopUp();
+       homePage.dismissPopUp();
        homePage.goToRegister();
     }
 

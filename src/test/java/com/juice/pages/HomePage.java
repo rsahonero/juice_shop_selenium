@@ -1,35 +1,31 @@
 package com.juice.pages;
 
-import com.juice.utils.Base;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.latest.audits.model.PropertyRuleIssueDetails;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends Base {
+public class HomePage extends BasePage {
 
-    @FindBy (id = "navbarAccount")
-    protected WebElement accountLink;
-
-    @FindBy (id = "navbarLoginButton")
-    protected WebElement singLink;
-
-    @FindBy (linkText = "Not yet a customer?")
-    protected WebElement registerLink;
+    private static final By dismissBtn = By.xpath("//span[contains(text(),'Dismiss')]");
+    private static final By accountLink = By.id("navbarAccount");
+    private static final By singLink = By.id("navbarLoginButton");
+    private static final By registerLink = By.linkText("Not yet a customer?");
 
 
-    public HomePage(WebDriver driver){
-        Base.driver = driver;
-        PageFactory.initElements(driver, this);
+    public void dismissPopUp() {
+        getWait().until(ExpectedConditions.elementToBeClickable(dismissBtn)).click();
     }
+
     public void goToSingIn(){
-        accountLink.click();
-        singLink.click();
+        getWait().until(ExpectedConditions.elementToBeClickable(accountLink)).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(singLink)).click();
     }
     public void goToRegister() {
-        accountLink.click();
-        singLink.click();
-        registerLink.click();
+        getWait().until(ExpectedConditions.elementToBeClickable(accountLink)).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(singLink)).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(registerLink)).click();
     }
 
 

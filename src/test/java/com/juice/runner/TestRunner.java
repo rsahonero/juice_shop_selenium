@@ -7,17 +7,17 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         glue =  {"com.juice"},
         plugin = {"pretty","summary",
-                "html:target/cucumber.html",
-                "json:target/cucumber.json",
-                "junit:target/cucumber.xml"
+                "html:target/cucumber-reports/cucumber.html",
+                "json:target/cucumber-reports/cucumber.json",
+                "junit:target/cucumber-reports/cucumber.xml",
         },
         monochrome = false,
         publish = true,
         dryRun = false,
-        tags = "@login"
+        tags = "@register"
         //tags = "@login and @register"
 )
 
-public class RunnerTest extends AbstractTestNGCucumberTests {
+public class TestRunner extends AbstractTestNGCucumberTests {
 
 }

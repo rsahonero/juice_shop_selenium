@@ -1,21 +1,29 @@
 package com.juice.steps;
 
-import com.juice.utils.Base;
+import com.juice.config.ConfigReader;
+import com.juice.driver.DriverManager;
+import com.juice.pages.HomePage;
+import com.juice.pages.LoginPage;
+import com.juice.pages.RegisterPage;
+import com.juice.pages.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-public class LoginSteps extends Base {
+public class LoginSteps extends BasePage {
+
+    private final HomePage homePage = new HomePage();
+    private final LoginPage loginPage = new LoginPage();
 
     @Given("User is on the Home Page")
     public void userIsOnTheHomePage() {
-        driver.get(BASE_URL);
+        DriverManager.getDriver().get(ConfigReader.getAppUrl());
     }
     @When("User navigates to the Login page")
     public void userNavigatesToTheLoginPage() {
-        registerPage.dismissPopUp();
+        homePage.dismissPopUp();
         homePage.goToSingIn();
     }
 
