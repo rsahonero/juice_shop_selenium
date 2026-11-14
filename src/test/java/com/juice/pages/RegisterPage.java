@@ -8,7 +8,6 @@ public class RegisterPage extends BasePage {
     /**
      * locators
      */
-
     private static final By emailTextBox= By.id("emailControl");
     private static final By passwordTextBox= By.id("passwordControl");
     private static final By repeatPasswordTextBox= By.id("repeatPasswordControl");
@@ -19,8 +18,6 @@ public class RegisterPage extends BasePage {
     private static final By successMessage= By.cssSelector("div.mdc-snackbar__label");
 
     public String fullMessage = "Registration completed successfully. You can now log in.";
-
-
 
     public void fillOutFormDataTable(String email, String password, String repeatPassword, String securityQuestion, String answer) {
         $(emailTextBox).clear();

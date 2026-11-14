@@ -16,30 +16,8 @@ public class Hooks extends BasePage {
 
     @After
     public void tearDown() {
-        //DriverManager.cleanUp();
+        DriverManager.cleanUp();
     }
 
 
 }
-    /*
-    @Before
-    public void setup() {
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(TIME_OUT));
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIME_OUT));
-
-        homePage = new HomePage(driver);
-        registerPage = new RegisterPage(driver);
-        loginPage = new LoginPage(driver);
-    }
-
-    @After
-    public void tearDown() {
-        if(driver != null) {
-            //driver.quit();
-        }
-    }
-
-    */
-

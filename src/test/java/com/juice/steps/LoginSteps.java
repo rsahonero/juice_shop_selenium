@@ -4,7 +4,6 @@ import com.juice.config.ConfigReader;
 import com.juice.driver.DriverManager;
 import com.juice.pages.HomePage;
 import com.juice.pages.LoginPage;
-import com.juice.pages.RegisterPage;
 import com.juice.pages.BasePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

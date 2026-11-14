@@ -2,7 +2,6 @@ package com.juice.steps;
 
 import com.juice.pages.BasePage;
 import com.juice.pages.HomePage;
-import com.juice.pages.LoginPage;
 import com.juice.pages.RegisterPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
