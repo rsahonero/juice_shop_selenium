@@ -15,11 +15,9 @@ import org.testng.annotations.DataProvider;
         },
         monochrome = false,
         publish = true,
-        dryRun = false,
-        tags = "@history"
-        //tags = "@login and @register"
-)
-
+        dryRun = false
+        //tags = "@history"
+        )
 public class TestRunner extends AbstractTestNGCucumberTests {
         @Override
         @DataProvider(parallel = true)
