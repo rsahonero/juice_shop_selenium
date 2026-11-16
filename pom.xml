@@ -14,6 +14,7 @@
         <allure.version>2.29.0</allure.version>
         <aspectj.version>1.9.20</aspectj.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     </properties>
 
     <dependencyManagement>
@@ -54,6 +55,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -67,6 +69,7 @@
             <version>3.0.0-beta2</version>
             <scope>compile</scope>
         </dependency>
+
 
         <dependency>
             <groupId>net.datafaker</groupId>
@@ -114,7 +117,31 @@
                     </dependency>
                 </dependencies>
 
+            </plugin>
 
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>5.9.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>Cucumber Reports </projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <inputDirectory>
+                                ${project.build.directory}/cucumber-reports
+                            </inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
 

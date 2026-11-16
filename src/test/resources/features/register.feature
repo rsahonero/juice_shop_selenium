@@ -11,6 +11,6 @@ Feature: User registration
 
     Examples:
       | email              | password      | repeatPassword | securityQuestion                  | answer |
-      | jhon388@user.com   | Password1!    | Password1!     | Your eldest siblings middle name? | Smith  |
-      | vanesa389@user.com | Password2334! | Password2334!  | Your eldest siblings middle name? | Colby  |
+      | jhon881@user.com   | Password1!    | Password1!     | Your eldest siblings middle name? | Smith  |
+      | vanesa882@user.com | Password2334! | Password2334!  | Your eldest siblings middle name? | Colby  |
 

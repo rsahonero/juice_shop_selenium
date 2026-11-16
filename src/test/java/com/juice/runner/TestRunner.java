@@ -15,8 +15,8 @@ import org.testng.annotations.DataProvider;
         },
         monochrome = false,
         publish = true,
-        dryRun = false
-        //tags = "@history"
+        dryRun = false,
+        tags = "@regression"
         )
 public class TestRunner extends AbstractTestNGCucumberTests {
         @Override

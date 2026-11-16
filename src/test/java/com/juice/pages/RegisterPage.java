@@ -20,20 +20,20 @@ public class RegisterPage extends BasePage {
 
     public void fillOutFormDataTable(String email, String password, String repeatPassword, String securityQuestion, String answer) {
         $(emailTextBox).clear();
-        $(emailTextBox).sendKeys(email);
+        getWait().until(ExpectedConditions.elementToBeClickable(emailTextBox)).sendKeys(email);
 
         $(passwordTextBox).clear();
-        $(passwordTextBox).sendKeys(password);
+        getWait().until(ExpectedConditions.elementToBeClickable(passwordTextBox)).sendKeys(password);
 
         $(repeatPasswordTextBox).clear();
-        $(repeatPasswordTextBox).sendKeys(repeatPassword);
+        getWait().until(ExpectedConditions.elementToBeClickable(repeatPasswordTextBox)).sendKeys(repeatPassword);
 
-        $(dropDownSecurityQ).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(dropDownSecurityQ)).click();
         By optionDynamic = By.xpath("//span[contains(text(), '" + securityQuestion + "' )]");
         getWait().until(ExpectedConditions.elementToBeClickable(optionDynamic)).click();
 
         $(answerSecurityQ).clear();
-        $(answerSecurityQ).sendKeys(answer);
+        getWait().until(ExpectedConditions.elementToBeClickable(answerSecurityQ)).sendKeys(answer);
     }
 
     public void fillOutRegisterFakeForm() {

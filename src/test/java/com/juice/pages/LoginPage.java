@@ -12,9 +12,9 @@ public class LoginPage extends BasePage {
     private static final By invalidMessageLogin = By.xpath("//p[@class='error']");
 
     public void fillOutLogIn(String username, String password) {
-        $(emailTxt).sendKeys(username);
-        $(passwordTxt).sendKeys(password);
-        $(logInBtx).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(emailTxt)).sendKeys(username);
+        getWait().until(ExpectedConditions.elementToBeClickable(passwordTxt)).sendKeys(password);
+        getWait().until(ExpectedConditions.elementToBeClickable(logInBtx)).click();
     }
     public String getOwaspJuiceLabel() {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(owaspJuiceLabel)).getText();

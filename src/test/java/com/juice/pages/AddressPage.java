@@ -18,17 +18,17 @@ public class AddressPage extends BasePage{
 
 
     public void fillOutFormAddress(String country, String name, String mobileNumber, String zipCode, String address, String city, String state){
-        $(addNewAddressBtn).click();
-        $(countryTextBox).sendKeys(country);
-        $(nameAddressTextBox).sendKeys(name);
-        $(mobileNumberTextBox).sendKeys(mobileNumber);
-        $(zipCodeTextBox).sendKeys(zipCode);
-        $(addressTextBox).sendKeys(address);
-        $(cityTextBox).sendKeys(city);
-        $(stateTextBox).sendKeys(state);
+        getWait().until(ExpectedConditions.elementToBeClickable(addNewAddressBtn)).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(countryTextBox)).sendKeys(country);
+        getWait().until(ExpectedConditions.elementToBeClickable(nameAddressTextBox)).sendKeys(name);
+        getWait().until(ExpectedConditions.elementToBeClickable(mobileNumberTextBox)).sendKeys(mobileNumber);
+        getWait().until(ExpectedConditions.elementToBeClickable(zipCodeTextBox)).sendKeys(zipCode);
+        getWait().until(ExpectedConditions.elementToBeClickable(addressTextBox)).sendKeys(address);
+        getWait().until(ExpectedConditions.elementToBeClickable(cityTextBox)).sendKeys(city);
+        getWait().until(ExpectedConditions.elementToBeClickable(stateTextBox)).sendKeys(state);
     }
     public void clickRegisterAddressBtn() {
-        $(saveAddressBtn).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(saveAddressBtn)).click();
     }
 
     public String getAddressMessage() {

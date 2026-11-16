@@ -36,6 +36,7 @@ public class DriverFactory {
                 options.addArguments("--disable-gpu", "--window-size=1920,1080");
                 yield new ChromeDriver(options);
             }
+
             case "firefox" -> {
                 FirefoxOptions options = new FirefoxOptions();
                 if (headless) {

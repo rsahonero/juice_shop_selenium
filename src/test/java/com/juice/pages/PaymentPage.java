@@ -17,10 +17,10 @@ public class PaymentPage extends BasePage{
 
     public void fillOutPayment(String name, String cardNumber, String expiryMonth, String expiryYear) {
         getWait().until(ExpectedConditions.elementToBeClickable(expandAddNewCard)).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(nameCardTextBox)).sendKeys(name);
+        getWait().until(ExpectedConditions.elementToBeClickable(cardNumberTextBox)).sendKeys(cardNumber);
+        getWait().until(ExpectedConditions.elementToBeClickable(expiryMonthDpw)).click();
 
-        $(nameCardTextBox).sendKeys(name);
-        $(cardNumberTextBox).sendKeys(cardNumber);
-        $(expiryMonthDpw).click();
         By expiryMonthOption = By.xpath("//option[@value='"+ expiryMonth +"']"); //DROP DOWN
         getWait().until(ExpectedConditions.elementToBeClickable(expiryMonthOption)).click();
 
@@ -30,7 +30,7 @@ public class PaymentPage extends BasePage{
     }
 
     public void clickRegisterPaymentBtn() {
-        $(submitPaymentBtn).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(submitPaymentBtn)).click();
     }
 
     public String getSuccessMessage(String expected) {

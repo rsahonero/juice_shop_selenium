@@ -21,17 +21,18 @@ public class BasketPage extends BasePage{
         getWait().until(ExpectedConditions.elementToBeClickable(
                 By.xpath("(//mat-radio-button)[" + index + "]"))).click();
 
-        $(continueAddressBtn).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(continueAddressBtn)).click();
+
     }
 
     public void getDeliveryAddress(){
-        $(deliveryAddressCheckbox).click();
-        $(continueDeliveryBtn).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(deliveryAddressCheckbox)).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(continueDeliveryBtn)).click();
     }
 
     public void selectPayment(int index) {
         getWait().until(ExpectedConditions.elementToBeClickable(By.xpath("(//mat-radio-button)[" + index + "]"))).click();
-        $(continuePaymentBtn).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(continuePaymentBtn)).click();
     }
 
     public void paymentOrder() {

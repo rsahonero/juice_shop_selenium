@@ -1,7 +1,8 @@
 package com.juice.pages;
 
+import com.juice.driver.DriverFactory;
 import com.juice.driver.DriverManager;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
@@ -9,7 +10,13 @@ public class HomePage extends BasePage {
     private static final By dismissBtn = By.xpath("//span[contains(text(),'Dismiss')]");
 
     public void dismissPopUp() {
-        getWait().until(ExpectedConditions.elementToBeClickable(dismissBtn)).click();
+        WebElement btn = getWait().until(ExpectedConditions.presenceOfElementLocated(dismissBtn));
+        try {
+            getWait().until(ExpectedConditions.elementToBeClickable(btn)).click();
+        } catch (ElementClickInterceptedException | TimeoutException e) {
+            ((JavascriptExecutor) DriverFactory.getDriver())
+                    .executeScript("arguments[0].click();", btn);
+        }
     }
 
 
