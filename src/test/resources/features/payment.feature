@@ -1,4 +1,4 @@
-@payment
+@regression @payment
 Feature: User payment
   As a new visitor
   I want to create an account

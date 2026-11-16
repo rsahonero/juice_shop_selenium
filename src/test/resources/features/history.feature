@@ -1,4 +1,4 @@
-@history
+@regression @history
 Feature: Order history
   As a registered customer
   I want to review my orders

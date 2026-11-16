@@ -1,3 +1,4 @@
+@regression
 Feature: basket
   As a registered customer
   I want to review the products on the basket

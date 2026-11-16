@@ -1,4 +1,4 @@
-@register
+@regression @register
 Feature: User registration
   As a new customer
   I want to save payment methods

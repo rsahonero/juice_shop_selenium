@@ -1,4 +1,4 @@
-@login
+@regression @login
 Feature: Login functionality on fruit juice
   As a registered customer
   I want to log in and log out securely

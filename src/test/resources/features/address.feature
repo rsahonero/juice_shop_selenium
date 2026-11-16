@@ -1,4 +1,4 @@
-@address
+@regression @address
 Feature: Address
   As a customer
   I want to register my address or addresses for shipping my product
