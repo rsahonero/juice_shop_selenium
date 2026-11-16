@@ -11,6 +11,11 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      juiceshop:
+        image: bkimminich/juice-shop
+        ports:
+          - 3000:3000
 
  # step 1: Checkout the repository
     steps:
