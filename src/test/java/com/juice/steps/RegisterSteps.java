@@ -8,7 +8,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
-
 public class RegisterSteps extends BasePage {
 
     private final HomePage homePage = new HomePage();
@@ -16,8 +15,8 @@ public class RegisterSteps extends BasePage {
 
     @Given("User navigates to the Create an Account page")
     public void user_navigates_to_the_create_an_account_page() {
-       homePage.dismissPopUp();
-       homePage.goToRegister();
+        homePage.goToRegister();
+        homePage.dismissPopUp();
     }
 
     @When("User registers with {string}, {string}, {string}, {string} and {string}")

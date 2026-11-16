@@ -1,11 +1,8 @@
 @register
 Feature: User registration
-  As a new visitor
-  I want to create an account
-  So that I can shop and manage my orders
-
-  Background:
-    Given User is on the Home Page
+  As a new customer
+  I want to save payment methods
+  So that I can shop and complete my order
 
   Scenario Outline: Register multiple customers
     When User navigates to the Create an Account page
@@ -14,6 +11,6 @@ Feature: User registration
 
     Examples:
       | email              | password      | repeatPassword | securityQuestion                  | answer |
-      | jhon178@user.com   | Password1!    | Password1!     | Your eldest siblings middle name? | Smith  |
-      | vanesa179@user.com | Password2334! | Password2334!  | Your eldest siblings middle name? | Colby  |
+      | jhon388@user.com   | Password1!    | Password1!     | Your eldest siblings middle name? | Smith  |
+      | vanesa389@user.com | Password2334! | Password2334!  | Your eldest siblings middle name? | Colby  |
 

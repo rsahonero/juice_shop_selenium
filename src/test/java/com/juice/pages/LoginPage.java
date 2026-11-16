@@ -5,14 +5,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.List;
 
 public class LoginPage extends BasePage {
-
-
     private static final By emailTxt = By.id("email");
     private static final By passwordTxt = By.id("password");
     private static final By logInBtx = By.id("loginButton");
     private static final By owaspJuiceLabel = By.xpath("//span[contains(text(), ' OWASP Juice Shop ')]");
     private static final By invalidMessageLogin = By.xpath("//p[@class='error']");
-
 
     public void fillOutLogIn(String username, String password) {
         $(emailTxt).sendKeys(username);
@@ -28,7 +25,7 @@ public class LoginPage extends BasePage {
     public String getDisplayedMessage() {
         getWait().until(driver ->
                 !driver.findElements(By.xpath("//p[@class='error']")).isEmpty()
-                        || driver.getCurrentUrl().contains("/search")   // o la URL/elemento que aparece tras login exitoso
+                        || driver.getCurrentUrl().contains("/search")
         );
 
         List<WebElement> errors = driver.findElements(By.xpath("//p[@class='error']"));

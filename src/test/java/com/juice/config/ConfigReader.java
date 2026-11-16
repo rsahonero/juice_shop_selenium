@@ -38,6 +38,10 @@ public class ConfigReader {
         return get("app.url");
     }
 
+    public static String getUsername() { return properties.getProperty("user.email"); }
+
+    public static String getPassword() { return properties.getProperty("user.password"); }
+
     public static int getImplicitTimeout() {
         return Integer.parseInt(get("timeout.implicit"));
     }
